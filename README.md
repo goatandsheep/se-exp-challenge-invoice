@@ -6,8 +6,12 @@ This is my attempt at the Wave front end challenge. I'm particularly proud of...
 
 ### Setup
 
-1. Make sure you have NPM installed
+To run this application:
+
+1. Make sure you have NPM installed. I am using version 20.11.0, which is LTS at the time of writing. Look into managing your NPM version with NVM.
 2. run `npm i`
+3. build: `npm run build`
+4. run the code: `npm run dev`
 
 ### Notes
 
@@ -19,11 +23,15 @@ This project is a page for updating data for users' clients for invoicing purpos
 
 The requirements ask for a simple form. A basic HTTP form could do the job of this, but it would not be reusable nor composable.
 
-My thoughts are to make a vertical list of customers and have a standard layout for displaying the values for each attribute for each customer. Pressing an edit button would replace the view from display mode to edit mode and display a form where values can be set before being submitted. I intend to do a fairly simple execution and make one interesting feature to stand out. For example, I could cache the form values in `localstorage` in case something happens during editing? I will see.
+My thoughts are to make a vertical list of customers and have a standard layout for displaying the values for each attribute for each customer. Pressing an edit button would replace the view from display mode to edit mode and display a form where values can be set before being submitted. I intend to do a fairly simple execution and make one interesting feature to stand out. For example, I could cache the form values in `localstorage` in case something happens during editing? I will see. Probably not actually. It's better I just do a good job with good practices of a simple application.
 
-Init npm
+Initialized using next.js
 
+TODO:
 
+- [ ] During loading state, some things won't be useable
+- [ ] Testing components
+- [ ] Document API input
 
 ## Challenge Introduction
 

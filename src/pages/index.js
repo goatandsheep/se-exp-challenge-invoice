@@ -2,10 +2,17 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
+import { useAsync } from "react-async"
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [loading, setLoading] = useState(null)
+  const [fetchError, setFetchError] = useState(null)
+  const [results, setResults] = useState([])
+  // TODO: retry button if error
+  // TODO: if API fetch is moved to component, address race conditions by adding prop to useEffect array
+
   return (
     <>
       <Head>
@@ -16,38 +23,16 @@ export default function Home() {
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
         <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>src/pages/index.js</code>
-          </p>
+          <div>hi</div>
           <div>
             <a
               href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
               target="_blank"
               rel="noopener noreferrer"
             >
-              By{" "}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
+              By
             </a>
           </div>
-        </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
         </div>
 
         <div className={styles.grid}>
@@ -58,7 +43,7 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             <h2>
-              Docs <span>-&gt;</span>
+              Docs
             </h2>
             <p>
               Find in-depth information about Next.js features and&nbsp;API.
@@ -72,7 +57,7 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             <h2>
-              Learn <span>-&gt;</span>
+              Learn
             </h2>
             <p>
               Learn about Next.js in an interactive course with&nbsp;quizzes!
@@ -86,7 +71,7 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             <h2>
-              Templates <span>-&gt;</span>
+              Templates
             </h2>
             <p>
               Discover and deploy boilerplate example Next.js&nbsp;projects.
@@ -100,7 +85,7 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             <h2>
-              Deploy <span>-&gt;</span>
+              Deploy
             </h2>
             <p>
               Instantly deploy your Next.js site to a shareable URL
