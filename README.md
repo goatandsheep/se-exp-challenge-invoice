@@ -1,5 +1,32 @@
 # Wave Front-end Challenge
 
+## Introduction
+
+This is my attempt at the Wave front end challenge. I'm particularly proud of...
+
+### Setup
+
+1. Make sure you have NPM installed
+2. run `npm i`
+
+### Notes
+
+As I'm working on this project I'm taking notes on what I'm doing and why.
+
+I hope to have fun building this project! My first impression is that the projects are possibly for features Wave is interested in expanding. I am a current Wave user and hopefully I can use my experience to come up with creative solutions to some of the problems I have faced while using the product.
+
+This project is a page for updating data for users' clients for invoicing purposes. Although I read the requirements, I'm also studying the json to understand the structure to give additional hints of what the requirements entail.
+
+The requirements ask for a simple form. A basic HTTP form could do the job of this, but it would not be reusable nor composable.
+
+My thoughts are to make a vertical list of customers and have a standard layout for displaying the values for each attribute for each customer. Pressing an edit button would replace the view from display mode to edit mode and display a form where values can be set before being submitted. I intend to do a fairly simple execution and make one interesting feature to stand out. For example, I could cache the form values in `localstorage` in case something happens during editing? I will see.
+
+Init npm
+
+
+
+## Challenge Introduction
+
 The purpose of this exercise is to create something that we can work on together during the onsite interview. We do this so that you get a chance to
 collaborate with Wavers during the interview in a situation where you know something better than us (it's your code, after all!)
 
@@ -27,7 +54,7 @@ The front-end prototype only needs to do the following:
 
 The JSON will be available by calling GET https://rawgit.com/wvchallenges/se-exp-challenge-invoice/master/settings.json and can be retrieved using fetch, XHR, JQuery or whatever library you're familiar with.
 
-Our desire is to approach this in a way that gives us composable, reusable code for use in later features and products. So some thought should be given to how this code could be expanded upon and repurposed. For now this will be a Canada only product and all addresses are assumed to be in Canada but we plan to roll this out to other countries later. 
+Our desire is to approach this in a way that gives us composable, reusable code for use in later features and products. So some thought should be given to how this code could be expanded upon and repurposed. For now this will be a Canada only product and all addresses are assumed to be in Canada but we plan to roll this out to other countries later.
 Do not worry about making the UI pretty! Just make it functional. All we ask is that it be easy to add more styling later.
 
 Use whatever framework, tooling, scaffolding, starter-kits you are comfortable with that feel appropriate to this challenge. At Wave, we have used Backbone, Angular, React with the emphasis being heavily on React for current work. Your application should be easy to run and browse, and should run on either Linux or Mac OS X. It should not require any non open-source software.
