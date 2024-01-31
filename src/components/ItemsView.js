@@ -6,10 +6,10 @@ import styles from "@/styles/Home.module.css";
  * @property {import('./CustomerDetails.js').CustomerDetails} customer
  * @returns
  */
-export default function ItemsView({customer}) {
+export default function ItemsView({customer, toggleState}) {
     return (
         <div>
-            <button>Edit</button>
+            <button onClick={() => toggleState(true)}>Edit</button>
             <div className={styles.grid}>
                 <ItemDetail name="id" value={customer.id}></ItemDetail>
                 <ItemDetail name="name" value={customer.name}></ItemDetail>
