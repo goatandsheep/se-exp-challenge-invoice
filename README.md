@@ -37,11 +37,13 @@ I could use a check to disable the submit button, but there are other ways to su
 
 The boilerplate styles seem to make things worse due to overflow but I'm not going to obsess over styling.
 
-TODO:
+Some things I didn't do:
 
-- [ ] During loading state, some things won't be useable
-- [ ] Testing components
-- [ ] Document API input
+- [ ] Testing components with jest
+- [ ] componentalized input fields
+- [ ] typescript or documenting components or proptypes
+- [ ] fixed autolinting
+
 
 ## Challenge Introduction
 

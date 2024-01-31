@@ -5,9 +5,8 @@ export default function ItemsEditor({ customer, toggleState }) {
     const [draftCustomer, setDraftCustomer] = useState({})
     const handleSubmit = (event) => {
         event.preventDefault()
-        window.alert('hi')
         // TODO: if error check
-        // TODO: console.log(new value)
+        console.log(draftCustomer)
         toggleState(false)
     }
 
@@ -35,10 +34,7 @@ export default function ItemsEditor({ customer, toggleState }) {
             <div>
                 <label>email</label><input name="email" value={draftCustomer.email} required onChange={(e) => setDraftFieldValue('email', e.target.value)} />
             </div>
-
-            <div>
-                <label>channel</label><DropDown name="channel" value={draftCustomer.channel} onChange={(e) => setDraftFieldValue('channel', e.target.value)}></DropDown>
-            </div>
+            <DropDown name="channel" value={draftCustomer.channel} onChange={setDraftFieldValue}></DropDown>
 
             <div>
                 <label>website</label><input name="website" value={draftCustomer.website} required onChange={(e) => setDraftFieldValue('website', e.target.value)} />
