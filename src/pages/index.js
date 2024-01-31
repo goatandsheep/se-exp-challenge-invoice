@@ -2,16 +2,16 @@ import { useEffect, useState } from 'react'
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import ItemsView from '@/components/ItemsView';
+// import ItemsView from '@/components/ItemsView';
 import ItemsEditor from '@/components/ItemsEditor';
 
 const inter = Inter({ subsets: ["latin"] });
 
-function CustomerView({ customer }) {
-  const [isEditing, setIsEditing] = useState(false)
-  if (isEditing) return <ItemsEditor customer={customer} toggleState={setIsEditing} />
-  return <ItemsView customer={customer} toggleState={setIsEditing} />
-}
+// function CustomerView({ customer }) {
+//   const [isEditing, setIsEditing] = useState(false)
+//   if (isEditing) return <ItemsEditor customer={customer} toggleState={setIsEditing} />
+//   return <ItemsView customer={customer} toggleState={setIsEditing} />
+// }
 
 function CustomersList({ customers }) {
   const [draftCustomer, setDraftCustomer] = useState(null)

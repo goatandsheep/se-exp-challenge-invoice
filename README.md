@@ -39,6 +39,8 @@ The boilerplate styles seem to make things worse due to overflow but I'm not goi
 
 At this point I realized I kinda did the wrong thing wrt the customer view and I'll probably need a router
 
+Instead of doing the router I did the minimum to show the output. I also noticed a issue Webpack was firing but I didn't fix it yet. Also I commented out some unused components. I should delete them, but I wanted to keep them for record keeping.
+
 Some things I didn't do:
 
 - [ ] Testing components with jest
