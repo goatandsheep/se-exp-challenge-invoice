@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "bundle": "git bundle create your_name_front_end.bundle --all",
+    "bundle": "git bundle create kemal_ahmed_front_end.bundle --all",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
