@@ -1,17 +1,41 @@
+import {useEffect, useState} from 'react'
 import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import { useAsync } from "react-async"
 
 const inter = Inter({ subsets: ["latin"] });
 
+/**
+ * Switcher to show correct view depending on status of data fetch
+ * @property {Object} data
+ * @property {Object} error
+ * @property {Boolean} isPending
+ */
+function CustomerData({data, error, isPending}) {
+  if (isPending) return 'Loading'
+  else if (error) return `Something went wrong: ${error.message}`
+  else if (data) return (
+    <div>{JSON.stringify(data, null)}</div>
+    )
+  return null
+}
+
 export default function Home() {
-  const [loading, setLoading] = useState(null)
-  const [fetchError, setFetchError] = useState(null)
-  const [results, setResults] = useState([])
+  const [customers, setCustomers] = useState(null)
+  const [error, setError] = useState(null)
+  const [isPending, setIsPending] = useState(false)
   // TODO: retry button if error
-  // TODO: if API fetch is moved to component, address race conditions by adding prop to useEffect array
+  useEffect(() => {
+    setIsPending(true)
+    fetch('https://rawgit.com/wvchallenges/se-exp-challenge-invoice/master/settings.json')
+    .then(response => response.json())
+    .then(data => setCustomers(data.customers))
+    .catch(err =>
+      // console.error(err)
+      setError(err)
+    )
+    .finally(() => setIsPending(false))
+  }, [])
 
   return (
     <>
@@ -22,8 +46,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
-        <div className={styles.description}>
-          <div>hi</div>
+        <div>
+          <div>
+          <CustomerData data={customers} error={error} isPending={isPending} />
+          </div>
           <div>
             <a
               href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"

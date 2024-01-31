@@ -27,6 +27,12 @@ My thoughts are to make a vertical list of customers and have a standard layout 
 
 Initialized using next.js
 
+I started by cleaning up some of the boilerplate. Added a fetch. Started by printing the JSON object.
+
+I'm choosing to use parent-child relationships for the forms instead of state for simplicity. I also am not using a dotenv strategy.
+
+I created a modular approach to the settings since there's already 10 of them and bound to be more in the future.
+
 TODO:
 
 - [ ] During loading state, some things won't be useable

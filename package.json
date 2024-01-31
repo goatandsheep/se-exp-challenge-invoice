@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "bundle": "git bundle create your_name_front_end.bundle --all",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -11,11 +12,13 @@
   "dependencies": {
     "next": "14.1.0",
     "react": "^18",
-    "react-async": "^10.0.1",
     "react-dom": "^18"
   },
   "devDependencies": {
     "eslint": "^8",
     "eslint-config-next": "14.1.0"
+  },
+  "eslintConfig": {
+    "extends": "next/core-web-vitals"
   }
 }
