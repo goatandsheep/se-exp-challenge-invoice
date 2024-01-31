@@ -5,7 +5,6 @@ export default function ItemsEditor({ customer, toggleState }) {
     const [draftCustomer, setDraftCustomer] = useState({})
     const handleSubmit = (event) => {
         event.preventDefault()
-        // TODO: if error check
         console.log(draftCustomer)
         toggleState(false)
     }
@@ -19,7 +18,7 @@ export default function ItemsEditor({ customer, toggleState }) {
     useEffect(() => setDraftCustomer({ ...customer }), [customer])
     return (
         <form onSubmit={handleSubmit}>
-            {/* TODO: error handling */}
+            {/* TODO: duplicate error handling */}
             <button type="submit">Save</button>
             <button onClick={() => toggleState(false)}>Cancel</button>
             <div>

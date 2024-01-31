@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is my attempt at the Wave front end challenge. I'm particularly proud of...
+This is my attempt at the Wave front end challenge. I'm particularly proud of how I leveraged built-in functions and HTML attributes to do effective error handling of the form with minimal Javascript.
 
 ### Setup
 
@@ -37,13 +37,15 @@ I could use a check to disable the submit button, but there are other ways to su
 
 The boilerplate styles seem to make things worse due to overflow but I'm not going to obsess over styling.
 
+At this point I realized I kinda did the wrong thing wrt the customer view and I'll probably need a router
+
 Some things I didn't do:
 
 - [ ] Testing components with jest
 - [ ] componentalized input fields
 - [ ] typescript or documenting components or proptypes
 - [ ] fixed autolinting
-
+- [ ] show which fields have been changed
 
 ## Challenge Introduction
 
