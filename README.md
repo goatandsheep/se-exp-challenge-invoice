@@ -46,6 +46,7 @@ Some things I didn't do:
 - [ ] typescript or documenting components or proptypes
 - [ ] fixed autolinting
 - [ ] show which fields have been changed
+- [ ] router
 
 ## Challenge Introduction
 

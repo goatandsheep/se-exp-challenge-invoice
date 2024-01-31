@@ -13,6 +13,19 @@ function CustomerView({ customer }) {
   return <ItemsView customer={customer} toggleState={setIsEditing} />
 }
 
+function CustomersList({ customers }) {
+  const [draftCustomer, setDraftCustomer] = useState(null)
+  if (draftCustomer === null) {
+    return (
+      <div>
+        {customers.map(customer => (<button key={customer.id} onClick={() => setDraftCustomer(customer)}>Edit {customer.name}</button>))}
+      </div>
+      )
+  }
+  return (
+    <ItemsEditor customer={draftCustomer} toggleState={() => setDraftCustomer(null)} />)
+}
+
 /**
  * Switcher to show correct view depending on status of data fetch
  * @property {Object} data
@@ -22,9 +35,11 @@ function CustomerView({ customer }) {
 function CustomerData({ data, error, isPending }) {
   if (isPending) return 'Loading'
   else if (error) return `Something went wrong: ${error.message}`
-  else if (data) return (
-    <div>{data.map(customer => <CustomerView key={customer.id} customer={customer} />)}</div>
-  )
+  else if (data) return ( <CustomersList customers={data} />)
+  // else if (data) return (
+  //   <div>{data.map(customer => <CustomerView key={customer.id} customer={customer} />)}</div>
+  // )
+
   return null
 }
 
