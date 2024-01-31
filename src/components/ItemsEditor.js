@@ -3,62 +3,66 @@ import DropDown from "./DropDown"
 
 export default function ItemsEditor({customer, toggleState}) {
     const [error, setError] = useState(null)
+    const [draftCustomer, setDraftCustomer] = useState({})
     const handleSubmit = (event) => {
         event.preventDefault()
         window.alert('hi')
         // TODO: if error check
         // TODO: console.log(new value)
-        // TODO: go back to view mode
         toggleState(false)
     }
 
-    useEffect(() => {
-        //
-    },[customer])
+    function setDraftFieldValue(fieldName, fieldValue) {
+        let tempCustomer = {...draftCustomer}
+        tempCustomer[fieldName] = fieldValue
+        setDraftCustomer(tempCustomer)
+    }
+
+    useEffect(() => setDraftCustomer({...customer}), [customer])
     return (
         <form onSubmit={handleSubmit}>
             {/* TODO: error handling */}
             <button type="submit">Save</button>
             <button onClick={() => toggleState(false)}>Cancel</button>
             <div>
-            <label>id</label>
-                <input name="id" value={customer.id} min="1" type="number" pattern="\d"/>
+                <label>id</label>
+                <input name="id" value={draftCustomer.id} min="0" type="number" pattern="\d" onChange={(e) => setDraftFieldValue('id', e.target.value)}/>
             </div>
 
             <div>
-                <label>name</label><input name="name" value={customer.name} minLength="1"/>
+                <label>name</label><input name="name" value={draftCustomer.name} required onChange={(e) => setDraftFieldValue('name', e.target.value)}/>
             </div>
 
             <div>
-                <label>email</label><input name="email" value={customer.email} minLength="1"/>
+                <label>email</label><input name="email" value={draftCustomer.email} required onChange={(e) => setDraftFieldValue('email', e.target.value)}/>
             </div>
 
             <div>
-                <label>channel</label><DropDown name="channel" value={customer.channel}></DropDown>
+                <label>channel</label><DropDown name="channel" value={draftCustomer.channel} onChange={(e) => setDraftFieldValue('channel', e.target.value)}></DropDown>
             </div>
 
             <div>
-                <label>website</label><input name="website" value={customer.website} minLength="1"/>
+                <label>website</label><input name="website" value={draftCustomer.website} required onChange={(e) => setDraftFieldValue('website', e.target.value)}/>
             </div>
 
             <div>
-                <label>address</label><input name="address" value={customer.address} minLength="1"/>
+                <label>address</label><input name="address" value={draftCustomer.address} required onChange={(e) => setDraftFieldValue('address', e.target.value)}/>
             </div>
 
             <div>
-                <label>postal</label><input name="postal" value={customer.postal} minLength="1"/>
+                <label>postal</label><input name="postal" value={draftCustomer.postal} required minLength={6} maxLength={7} onChange={(e) => setDraftFieldValue('postal', e.target.value)}/>
             </div>
 
             <div>
-                <label>city</label><input name="city" value={customer.city} minLength="1"/>
+                <label>city</label><input name="city" value={draftCustomer.city} required onChange={(e) => setDraftFieldValue('city', e.target.value)}/>
             </div>
 
             <div>
-                <label>province</label><input name="province" value={customer.province} minLength="1"/>
+                <label>province</label><input name="province" value={draftCustomer.province} required minLength={2} maxLength={2} onChange={(e) => setDraftFieldValue('province', e.target.value)}/>
             </div>
 
             <div>
-                <label>country</label><input name="country" value={customer.country} minLength="1"/>
+                <label>country</label><input name="country" value={draftCustomer.country} required minLength={2} maxLength={2} onChange={(e) => setDraftFieldValue('country', e.target.value)}/>
             </div>
         </form>
         )
