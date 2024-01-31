@@ -6,7 +6,7 @@ import styles from "@/styles/Home.module.css";
  * @property {import('./CustomerDetails.js').CustomerDetails} customer
  * @returns
  */
-export default function ItemsView({customer, toggleState}) {
+export default function ItemsView({ customer, toggleState }) {
     return (
         <div>
             <button onClick={() => toggleState(true)}>Edit</button>
@@ -23,5 +23,5 @@ export default function ItemsView({customer, toggleState}) {
                 <ItemDetail name="country" value={customer.country}></ItemDetail>
             </div>
         </div>
-        )
+    )
 }

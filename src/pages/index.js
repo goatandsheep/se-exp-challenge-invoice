@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
@@ -7,7 +7,7 @@ import ItemsEditor from '@/components/ItemsEditor';
 
 const inter = Inter({ subsets: ["latin"] });
 
-function CustomerView({customer}) {
+function CustomerView({ customer }) {
   const [isEditing, setIsEditing] = useState(false)
   if (isEditing) return <ItemsEditor customer={customer} toggleState={setIsEditing} />
   return <ItemsView customer={customer} toggleState={setIsEditing} />
@@ -19,12 +19,12 @@ function CustomerView({customer}) {
  * @property {Object} error
  * @property {Boolean} isPending
  */
-function CustomerData({data, error, isPending}) {
+function CustomerData({ data, error, isPending }) {
   if (isPending) return 'Loading'
   else if (error) return `Something went wrong: ${error.message}`
   else if (data) return (
-    <div>{data.map( customer => <CustomerView key={customer.id} customer={customer}/>)}</div>
-    )
+    <div>{data.map(customer => <CustomerView key={customer.id} customer={customer} />)}</div>
+  )
   return null
 }
 
@@ -36,13 +36,13 @@ export default function Home() {
   useEffect(() => {
     setIsPending(true)
     fetch('https://rawgit.com/wvchallenges/se-exp-challenge-invoice/master/settings.json')
-    .then(response => response.json())
-    .then(data => setCustomers(data.customers))
-    .catch(err =>
-      // console.error(err)
-      setError(err)
-    )
-    .finally(() => setIsPending(false))
+      .then(response => response.json())
+      .then(data => setCustomers(data.customers))
+      .catch(err =>
+        // console.error(err)
+        setError(err)
+      )
+      .finally(() => setIsPending(false))
   }, [])
 
   return (

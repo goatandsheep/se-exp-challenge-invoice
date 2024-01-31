@@ -1,7 +1,7 @@
 /**
  * Input field for customer form
  */
-export default function DropDown({value, name}) {
+export default function DropDown({ value, name }) {
     return (
         <select name={name} value={value}>
             <option value="website">Website</option>
@@ -10,5 +10,5 @@ export default function DropDown({value, name}) {
             <option value="word-of-mouth">Word of Mouth</option>
             <option value="other">Other</option>
         </select>
-        )
+    )
 }

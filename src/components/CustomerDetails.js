@@ -11,4 +11,4 @@
  * @property {String} province
  * @property {String} country code
  */
-export {};
+export { };
