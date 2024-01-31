@@ -33,6 +33,8 @@ I'm choosing to use parent-child relationships for the forms instead of state fo
 
 I created a modular approach to the settings since there's already 10 of them and bound to be more in the future.
 
+I could use a check to disable the submit button, but there are other ways to submit forms so I'll just handle errors in the onSubmit
+
 TODO:
 
 - [ ] During loading state, some things won't be useable
